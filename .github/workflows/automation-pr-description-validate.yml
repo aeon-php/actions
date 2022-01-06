@@ -1,0 +1,20 @@
+on:
+  workflow_call:
+    secrets:
+      automation_github_token:
+        required: true
+
+jobs:
+  automation-pr-description-validte:
+    name: "Pull Request - Description Validate"
+
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - name: "Pull Request Description - Validate"
+        uses: "docker://aeonphp/automation:latest"
+        env:
+          AEON_AUTOMATION_GH_TOKEN: "${{ secrets.automation.github_token }}"
+        with:
+          entrypoint: "/composer/vendor/bin/automation"
+          args: "pull-request:description:check ${{ github.repository }} ${{ github.event.pull_request.number }} --skip-from=\"dependabot[bot]\""
