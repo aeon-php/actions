@@ -2,7 +2,7 @@ on:
   workflow_call:
     inputs:
       php-version:
-        required: true
+        required: false
         type: string
         default: "7.4"
     secrets:
