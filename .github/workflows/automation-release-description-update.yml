@@ -14,7 +14,7 @@ jobs:
       - name: "Release - Update"
         uses: "docker://aeonphp/automation:latest"
         env:
-          AEON_AUTOMATION_GH_TOKEN: "${{ secrets.automation.github_token }}"
+          AEON_AUTOMATION_GH_TOKEN: "${{ secrets.automation_github_token }}"
         with:
           entrypoint: "/composer/vendor/bin/automation"
           args: "changelog:generate ${{ github.repository }} --tag=${{ github.event.release.tag_name }} --github-release-update --skip-from=\"dependabot[bot]\" --skip-from=\"aeon-automation\""

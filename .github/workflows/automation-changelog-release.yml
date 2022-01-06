@@ -20,7 +20,7 @@ jobs:
       - name: "Add new release to Changelog File"
         uses: "docker://aeonphp/automation:latest"
         env:
-          AEON_AUTOMATION_GH_TOKEN: "${{ secrets.automation.github_token }}"
+          AEON_AUTOMATION_GH_TOKEN: "${{ secrets.automation_github_token }}"
         with:
           entrypoint: "/composer/vendor/bin/automation"
           args: "changelog:release:unreleased ${{ github.repository }} CHANGELOG.md ${{ steps.tag-name.outputs.tag }} --github-file-changelog-update"

@@ -26,7 +26,7 @@ jobs:
       - name: "Update Changelog File"
         uses: "docker://aeonphp/automation:latest"
         env:
-          AEON_AUTOMATION_GH_TOKEN: "${{ secrets.automation.github_token }}"
+          AEON_AUTOMATION_GH_TOKEN: "${{ secrets.automation_github_token }}"
           EON_AUTOMATION_CACHE_DIR: "/github/workspace/cache"
         with:
           entrypoint: "/composer/vendor/bin/automation"
