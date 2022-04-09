@@ -61,4 +61,3 @@ jobs:
 
       - name: "Test"
         run: "composer test"
-        continue-on-error: ${{ matrix.php-version == '8.1' }}
