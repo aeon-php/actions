@@ -30,6 +30,7 @@ jobs:
         with:
           coverage: pcov
           tools: composer:v2
+          extensions: timezonedb
           php-version: "${{ matrix.php-version }}"
           ini-values: memory_limit=-1
 
