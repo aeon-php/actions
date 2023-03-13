@@ -18,7 +18,7 @@ jobs:
         uses: "actions/cache@v2"
         with:
           path: |
-            cache
+            /github/workspace/cache
           key: "${{ runner.os }}-automation-${{ hashFiles('**/CHANGELOG.md') }}"
           restore-keys: |
             ${{ runner.os }}-automation-
@@ -30,4 +30,4 @@ jobs:
           AEON_AUTOMATION_CACHE_DIR: "/github/workspace/cache"
         with:
           entrypoint: "/composer/vendor/bin/automation"
-          args: "changelog:generate ${{ github.repository }} --github-file-update-path=CHANGELOG.md --skip-from=\"dependabot[bot]\" --skip-from=\"aeon-automation\""
+          args: "changelog:generate ${{ github.repository }} --cache-path=/github/workspace/cache --github-file-update-path=CHANGELOG.md --skip-from=\"dependabot[bot]\" --skip-from=\"aeon-automation\""
